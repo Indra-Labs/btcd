@@ -30,6 +30,8 @@ require (
 
 replace github.com/btcsuite/btcd/btcutil => ./btcutil
 
+replace github.com/btcsuite/btcd => ./
+
 // The retract statements below fixes an accidental push of the tags of a btcd
 // fork.
 retract (

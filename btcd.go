@@ -328,13 +328,20 @@ func init() {
 }
 
 func main() {
+
+	// Allowing more threads than default nearly doubles transaction validation.
+	runtime.GOMAXPROCS(runtime.NumCPU() * 3)
+
 	// If GOGC is not explicitly set, override GC percent.
 	if os.Getenv("GOGC") == "" {
 		// Block and transaction processing can cause bursty allocations.  This
 		// limits the garbage collector from excessively overallocating during
 		// bursts.  This value was arrived at with the help of profiling live
 		// usage.
-		debug.SetGCPercent(10)
+		// debug.SetGCPercent(10)
+		// Giving more room for garbage also helps with sync.
+		debug.SetGCPercent(300)
+
 	}
 
 	// Up some limits.
