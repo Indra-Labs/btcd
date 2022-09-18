@@ -44,3 +44,4 @@ btcutil/psbt/coverage.txt
 /.idea/btcd.iml
 /.idea/modules.xml
 /.idea/vcs.xml
+/.idea/codeStyles/codeStyleConfig.xml
