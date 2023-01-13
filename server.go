@@ -2676,7 +2676,7 @@ func setupRPCListeners() ([]net.Listener, error) {
 	if !cfg.DisableTLS {
 		// Generate the TLS cert and key file if both don't already
 		// exist.
-		if !fileExists(cfg.RPCKey) && !fileExists(cfg.RPCCert) {
+		if !fileExists(cfg.RPCKey) || !fileExists(cfg.RPCCert) {
 			err := genCertPair(cfg.RPCCert, cfg.RPCKey)
 			if err != nil {
 				return nil, err
