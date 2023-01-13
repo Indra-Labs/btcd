@@ -11,6 +11,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"github.com/davecgh/go-spew/spew"
 	"io"
 	"net"
 	"os"
@@ -386,6 +387,10 @@ func parseCheckpoints(checkpointStrings []string) ([]chaincfg.Checkpoint, error)
 
 // filesExists reports whether the named file or directory exists.
 func fileExists(name string) bool {
+
+	spew.Dump(name)
+	spew.Dump(os.Stat(name))
+
 	if _, err := os.Stat(name); err != nil {
 		if os.IsNotExist(err) {
 			return false

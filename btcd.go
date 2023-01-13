@@ -155,6 +155,8 @@ func btcdMain(serverChan chan<- *server) error {
 	// drop unveil and tty
 	pledgex("stdio rpath wpath cpath flock dns inet")
 
+	btcdLog.Info("Hey!")
+
 	// Create server and start it.
 	server, err := newServer(cfg.Listeners, cfg.AgentBlacklist,
 		cfg.AgentWhitelist, db, activeNetParams.Params, interrupt)
